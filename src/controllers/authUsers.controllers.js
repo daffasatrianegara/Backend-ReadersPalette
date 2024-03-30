@@ -4,7 +4,7 @@ const login = async (req, res) => {
   const { email, password } = req.body;
   try {
     const auth = await authServices.loginUsers(email, password);
-    res.status(200).json({ message: "login berhasil...", status: true, data : auth });
+    res.status(200).json({ message: "login berhasil...", status: true, id : auth });
   } catch (err) {
     if(err.message == 400) {
         res.status(400).json({

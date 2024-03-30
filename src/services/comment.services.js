@@ -30,7 +30,7 @@ const deleteComment = async (data) => {
     }
 
     const checkComment = await CommentsRepo.getCommentByPk(id)
-    if(!checkId) {
+    if(!checkComment) {
         throw new Error(405)
     }
     const checkId = await checkComment.dataValues.user_id === parseInt(user_id)

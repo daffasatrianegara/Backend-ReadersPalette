@@ -1,9 +1,9 @@
-const { booksService } = require("../services");
+const { booksServices } = require("../services");
 
 const getAllBooks = async (req, res) => {
   const { page, limit } = req.query;
   try {
-    const getBooks = await booksService.getAllBooks({
+    const getBooks = await booksServices.getAllBooks({
       page: page,
       limit: limit,
     });
@@ -19,7 +19,7 @@ const getAllBooks = async (req, res) => {
 const getDetailBook = async (req, res) => {
   const id = req.params.id;
   try {
-    const getBook = await booksService.getDetailBook(id);
+    const getBook = await booksServices.getDetailBook(id);
     res.status(200).json({ status: "berhasil", message : 'data detail buku berhasil didapatkan',data: getBook });
   } catch (err) {
     if (err.message == 400) {
@@ -39,7 +39,7 @@ const getDetailBook = async (req, res) => {
 const searchBooks = async (req, res) => {
   const { keywords } = req.body;
   try {
-    const search = await booksService.searchBooks(keywords);
+    const search = await booksServices.searchBooks(keywords);
     res.status(200).json({ status : 'berhasil', message : search.length === 0 ? 'Data buku tidak ditemukan' : 'Data buku berhasil ditemukan', data: search });
   } catch (err) {
     if (err.message == 400) {

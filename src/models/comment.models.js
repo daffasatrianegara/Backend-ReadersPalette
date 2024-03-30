@@ -42,4 +42,9 @@ Books.hasMany(Comment, {
     foreignKey: 'book_id',
     onDelete: 'CASCADE'
 })
+
+Comment.belongsTo(User, {
+  foreignKey: 'user_id'
+})
+
 module.exports = Comment

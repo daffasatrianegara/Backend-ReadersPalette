@@ -37,9 +37,14 @@ User.hasMany(Answer_comment, {
     onDelete: 'CASCADE'
 })
 
+Answer_comment.belongsTo(User, {
+    foreignKey : 'user_id'
+})
+
 Comment.hasMany(Answer_comment, {
     foreignKey: 'comment_id',
     onDelete: 'CASCADE'
 })
+
 
 module.exports = Answer_comment

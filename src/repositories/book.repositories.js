@@ -41,7 +41,7 @@ const getDetailBookById = async (id) => {
     include: [
       {
         model: BookGenreModel,
-        attributes: [],
+        attributes: [], 
         as: "book_genres",
       },
     ],

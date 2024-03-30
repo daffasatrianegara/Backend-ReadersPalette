@@ -1,7 +1,9 @@
 const authServices = require('./authUsers.services')
-const booksService = require('./book.services')
+const booksServices = require('./book.services')
+const commentServices = require('./comment.services')
 
 module.exports = {
     authServices,
-    booksService
+    booksServices,
+    commentServices
 }
