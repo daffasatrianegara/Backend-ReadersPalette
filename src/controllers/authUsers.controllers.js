@@ -4,7 +4,7 @@ const login = async (req, res) => {
   const { email, password } = req.body;
   try {
     const auth = await authServices.loginUsers(email, password);
-    res.status(200).json({ message: "login berhasil...", auth });
+    res.status(200).json({ message: "login berhasil...", status: true, data : auth });
   } catch (err) {
     if(err.message == 400) {
         res.status(400).json({
@@ -20,7 +20,7 @@ const login = async (req, res) => {
     } else {
         res.status(500).json({
             status : 'failed',
-            message : 'internal server error'
+            message : err.message
         })
     }
   }
@@ -38,7 +38,7 @@ const register = async (req, res) => {
       gender: gender,
       phone_number: phone_number,
     });
-    res.status(200).json({ message : register });
+    res.status(200).json({  status : 'berhasil' ,message : 'register berhasil...' });
   } catch (err) {
     if(err.message == 400) {
         res.status(400).json({
@@ -55,7 +55,7 @@ const register = async (req, res) => {
     } else {
         res.status(500).json({
             status : 'failed',
-            message : 'internal server error'
+            message : err.message
         })
     }
   }

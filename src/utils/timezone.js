@@ -5,8 +5,12 @@ dayjs.extend(timezone);
 dayjs.tz.setDefault("Asia/Jakarta");
 
 const dateNow = dayjs();
-const dateFormat = dateNow.format("YYYY-MM-DD HH:mm:ss")
 
-console.log(dateFormat);
+const dateFormat = () => {
+    const date = dateNow.format("YYYY-MM-DD HH:mm:ss")
+    return date
+}
 
-module.exports = dateFormat
+console.log(dateFormat());
+
+module.exports =  dateFormat

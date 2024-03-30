@@ -16,7 +16,7 @@ const loginUsers = async (email, password) => {
     throw new Error(401);
   }
 
-  const response = { status: true, user_id: checkEmail.dataValues.id };
+  const response = checkEmail.dataValues.id ;
   return response;
 };
 
@@ -46,8 +46,7 @@ const registerUsers = async (data) => {
     throw new Error(500);
   }
 
-  const response = { status: "berhasil", message: "Register berhasil..." };
-  return response
+  return add
 };
 
 module.exports = {

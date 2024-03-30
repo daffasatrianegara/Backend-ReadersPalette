@@ -8,6 +8,7 @@ const db = new Sequelize({
     username: process.env.DB_USER,
     password: process.env.DB_PASSWORD || "",
     database: process.env.DB_NAME,
+    timezone: '+07:00'
 })
 
 const port = parseInt(process.env.PORT_APP) || 8000;

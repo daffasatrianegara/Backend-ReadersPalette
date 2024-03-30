@@ -1,5 +1,5 @@
 const { UsersModel, UserModel } = require("../models");
-const dateFormat = require('../middlewares/timezone')
+const dateFormat = require('../utils/timezone')
 
 const getUsersByEmail = async (email) => {
   return UsersModel.findOne({
@@ -12,7 +12,7 @@ const getUsersByEmail = async (email) => {
 const addUsers = async (params) => {
   const { email, password } = params;
   const { name, age, gender, phone_number } = params;
-  const createdAt = dateFormat
+  const createdAt = await dateFormat()
 
   const addUsers = await UsersModel.create({
     email: email,
@@ -21,7 +21,7 @@ const addUsers = async (params) => {
     updatedAt: createdAt
   });
 
-  const users_id = addUsers.id
+  const users_id = await addUsers.id
 
   const addUser = await UserModel.create({
     user_id: users_id,
