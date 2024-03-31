@@ -8,8 +8,7 @@
     "migrate": "node ./src/utils/db.js",
     "destroy": "node ./src/utils/dropTables.js",
     "checktime": "node ./src/middlewares/timezone.js",
-    "dev": "nodemon ./src/",
-    "build": "node ./src/utils/db.js"
+    "dev": "nodemon ./src/"
   },
   "author": "Daffa and team",
   "license": "ISC",
