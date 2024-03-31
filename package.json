@@ -9,7 +9,7 @@
     "destroy": "node ./src/utils/dropTables.js",
     "checktime": "node ./src/middlewares/timezone.js",
     "dev": "nodemon ./src/",
-    "start": "node ./src"
+    "build": "node ./src"
   },
   "author": "Daffa and team",
   "license": "ISC",
