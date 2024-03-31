@@ -11,6 +11,4 @@ const dateFormat = () => {
     return date
 }
 
-console.log(dateFormat());
-
 module.exports =  dateFormat
