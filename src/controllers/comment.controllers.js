@@ -11,7 +11,7 @@ const getAllComment = async (req, res) => {
     res.status(200).json({
       status: "berhasil",
       message: "data komen pada buku berhasil didapatkan.",
-      data: getComment[0],
+      data: getComment,
     });
   } catch (err) {
     if (err.message == 400) {

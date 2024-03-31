@@ -5,6 +5,7 @@ const getUsersByEmail = async (email) => {
   return UsersModel.findOne({
     where: {
       email: email,
+      role: 'user'
     },
   });
 };

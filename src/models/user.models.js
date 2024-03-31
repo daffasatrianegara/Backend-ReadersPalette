@@ -24,7 +24,7 @@ const User = db.define('user', {
         allowNull: false,
     },
     gender: {
-        type: DataTypes.ENUM('Pria', 'Wanita'),
+        type: DataTypes.ENUM('pria', 'wanita'),
         allowNull: false
     },
     phone_number: {

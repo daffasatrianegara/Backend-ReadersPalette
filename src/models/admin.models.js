@@ -12,7 +12,7 @@ const Admin = db.define('admin', {
         allowNull: false
     },
     gender: {
-        type: DataTypes.ENUM('Pria', 'Wanita'),
+        type: DataTypes.ENUM('pria', 'wanita'),
         allowNull: false
     },
     phone_number: {
