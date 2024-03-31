@@ -3,6 +3,7 @@ require('dotenv').config()
 
 const db = new Sequelize({
     dialect:"mysql",
+    dialectModule: require('mysql2'),
     host: process.env.DB_HOST,
     port: parseInt(process.env.DB_PORT),
     username: process.env.DB_USER,
