@@ -30,7 +30,7 @@ const register = async (req, res) => {
   const { email, password } = req.body;
   const { name, age, gender, phone_number } = req.body;
   try {
-    const register = await authServices.registerUsers({
+    await authServices.registerUsers({
       email: email,
       password: password,
       name: name,
