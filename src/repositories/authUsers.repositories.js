@@ -1,4 +1,4 @@
-const { UsersModel, UserModel } = require("../models");
+const { UsersModel, UserModel, AdminModel } = require("../models");
 const dateFormat = require('../utils/timezone')
 
 const getUsersByEmail = async (email) => {

@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize')
-const { db } = require('../config')
+const { db, users_url } = require('../config')
 const Users = require('./users.models')
 
 const User = db.define('user', {
@@ -10,7 +10,7 @@ const User = db.define('user', {
     photo_profile: {
         type: DataTypes.STRING,
         allowNull: false,
-        defaultValue: 'noProfil.png'
+        defaultValue: `${users_url}noprofil.png`
     },
     name: {
         type: DataTypes.STRING(50),

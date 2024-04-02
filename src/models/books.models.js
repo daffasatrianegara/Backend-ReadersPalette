@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize')
-const { db } = require('../config')
+const { db, books_url } = require('../config')
 
 const Books = db.define('books', {
     id: {
@@ -9,7 +9,7 @@ const Books = db.define('books', {
     },
     photo: {
         type: DataTypes.STRING,
-        defaultValue: 'book.png',
+        defaultValue: `${books_url}book.png`,
         allowNull: 'false'
     },
     title: {

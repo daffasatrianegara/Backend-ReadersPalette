@@ -15,10 +15,14 @@ const db = new Sequelize({
 const port = parseInt(process.env.PORT_APP) || 8000;
 const api = process.env.API_PATH || 'api/v1';
 const secretKey = process.env.SECRET_KEY;
+const users_url = String(process.env.PHOTO_USER_URL);
+const books_url = String(process.env.PHOTO_BOOK_URL);
 
 module.exports = {
     db,
     port,
     api,
-    secretKey
+    secretKey,
+    users_url,
+    books_url
 }

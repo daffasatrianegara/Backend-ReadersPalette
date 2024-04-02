@@ -1,4 +1,5 @@
 const { photoServices } = require("../services");
+const { users_url, books_url } = require('../config')
 
 const uploadPhotoUser = async (req, res) => {
   const id = req.params.id;
@@ -6,7 +7,7 @@ const uploadPhotoUser = async (req, res) => {
   const fileName = req.file.filename;
   try {
     const upload = await photoServices.uploadPhotoUsers(id, {
-      photo_profile: fileName,
+      photo_profile: `${users_url}${fileName}`,
     });
     res.status(200).json({
       status: "berhasil",
@@ -33,7 +34,7 @@ const uploadPhotoBooks = async (req, res) => {
   const fileDirr = req.file.path;
   const fileName = req.file.filename;
   try {
-    await photoServices.uploadPhotoBook(id, { photo : fileName })
+    await photoServices.uploadPhotoBook(id, { photo : `${books_url}${fileName}` })
     res.status(200).json({
         status : 'berhasil',
         message : 'berhasil mengupload data foto buku...',
