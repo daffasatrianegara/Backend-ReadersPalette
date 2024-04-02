@@ -18,7 +18,7 @@ const uploadPhotoUsers = multer({
     storage: multer.diskStorage({
         destination: storageUsers,
         filename: (req, file, cb) => {
-            cb(null, 'users-photo'+ Date.now() +path.extname(file.originalname))
+            cb(null, 'users-photo-'+ Date.now() +path.extname(file.originalname))
         }
     })
 })
@@ -30,7 +30,7 @@ const uploadPhotoBooks = multer({
     storage: multer.diskStorage({
         destination: storageBooks,
         filename: (req, file, cb) => {
-            cb(null, 'books-photo'+ Date.now() +path.extname(file.originalname))
+            cb(null, 'books-photo-'+ Date.now() +path.extname(file.originalname))
         }
     })
 })
