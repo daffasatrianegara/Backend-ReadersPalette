@@ -22,12 +22,9 @@ const getDetailBook = async (id) => {
     return getData
 }
 
-const searchBooks = async (keywords) => {
-    if(!keywords) {
-        throw new Error(400)
-    }
-    const search = keywords.toLowerCase()
-    const getData = await BooksRepo.searchBooks(search)
+const searchBooks = async (data) => {
+    const { keywords } = data
+    const getData = await BooksRepo.searchBooks({ keywords : keywords })
 
     return getData
 }

@@ -1,5 +1,6 @@
-const { BooksModel, BookGenreModel, RatesModel } = require("../models");
+const { BooksModel, BookGenreModel } = require("../models");
 const { Op, col } = require("sequelize");
+const { db } = require("../config");
 
 const getAllBooks = async (params) => {
   const page = parseInt(params.page) || 1;
@@ -41,7 +42,7 @@ const getDetailBookById = async (id) => {
     include: [
       {
         model: BookGenreModel,
-        attributes: [], 
+        attributes: [],
         as: "book_genres",
       },
     ],
@@ -49,35 +50,36 @@ const getDetailBookById = async (id) => {
   return getBook;
 };
 
-const searchBooks = async (search) => {
+const searchBooks = async (params) => {
+  const { keywords } = params;
   const whereClause = [
     { is_deleted: false },
     {
       [Op.or]: [
         {
           title: {
-            [Op.substring]: search,
+            [Op.substring]: keywords,
           },
         },
         {
           author: {
-            [Op.substring]: search,
+            [Op.substring]: keywords,
           },
         },
         {
           category: {
-            [Op.substring]: search,
+            [Op.substring]: keywords,
           },
         },
         {
           publisher: {
-            [Op.substring]: search,
+            [Op.substring]: keywords,
           },
         },
       ],
     },
   ];
-  
+
   const getBooks = await BooksModel.findAll({
     where: whereClause,
     attributes: [
@@ -94,7 +96,6 @@ const searchBooks = async (search) => {
 
   return getBooks;
 };
-
 
 module.exports = {
   getAllBooks,

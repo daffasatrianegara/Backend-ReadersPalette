@@ -5,6 +5,6 @@ const router = Router()
 
 router.get('/', booksControllers.getAllBooks)
 router.get('/:id', booksControllers.getDetailBook)
-router.post('/search', booksControllers.searchBooks)
+router.get('/search/data', booksControllers.searchBooks)
 
 module.exports = router
