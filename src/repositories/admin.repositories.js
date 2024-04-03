@@ -6,6 +6,7 @@ const getDataUsers = async () => {
     return await UsersModel.findAll({
         where : { role : 'user' },
         attributes : [
+            'id',
             'email',
             [col('user.name'), 'username'],
             [col('user.age'), 'age'],
@@ -23,6 +24,7 @@ const getDetailUsers = async (id) => {
     return await UsersModel.findByPk(id, {
         where : { role : 'user' },
         attributes : [
+            'id',
             'email',
             [col('user.photo_profile'), 'photo'],
             [col('user.name'), 'username'],
