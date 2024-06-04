@@ -6,7 +6,7 @@ const db = new Sequelize({
     dialectModule: require('mysql2'),
     host: process.env.DB_HOST,
     port: parseInt(process.env.DB_PORT),
-    username: process.env.DB_USER,
+    username: process.env.DB_USER || "freedb_dapaa",
     password: process.env.DB_PASSWORD || "",
     database: process.env.DB_NAME,
     timezone: '+07:00'
